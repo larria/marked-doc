@@ -5,7 +5,7 @@ marked.setOptions({
     tables: true,
     breaks: false,
     pedantic: false,
-    sanitize: true,
+    sanitize: false, // Ignore any HTML that has been input.
     smartLists: true,
     smartypants: false,
     langPrefix: ''
