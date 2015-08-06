@@ -1,24 +1,24 @@
 var marked = require('marked');
 marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false,
-  langPrefix : ''
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false,
+    langPrefix: ''
 });
 
 var path = require('path');
-var fs= require('fs');
+var fs = require('fs');
 
 doc(__dirname + '/src');
 
 function doc(path) {
-    if(!fs.existsSync(__dirname + '/doc')){
-        fs.mkdirSync(__dirname + '/doc', 0777);   
+    if (!fs.existsSync(__dirname + '/doc')) {
+        fs.mkdirSync(__dirname + '/doc', 0777);
     }
     walk(path);
 }
@@ -32,6 +32,8 @@ function walk(path) {
         } else {
             if (item.match(/\.md$/i)) {
                 buildHtml(path, item);
+            } else {
+                copyFile(path + '/' + item, (path + '/' + item).replace('/src', '/doc'));
             }
         }
     });
@@ -53,10 +55,10 @@ function buildHtml(path, item) {
     });
 }
 
-function buildDir (path) {
+function buildDir(path) {
     path = path.replace('/src', '/doc')
-    if(!fs.existsSync(path)){
-        fs.mkdirSync(path, 0777);   
+    if (!fs.existsSync(path)) {
+        fs.mkdirSync(path, 0777);
     }
 }
 
@@ -80,4 +82,8 @@ function fixedHTML(str, title) {
             </html>';
 
     return preStr + str + clzStr;
+}
+
+function copyFile(src, dest) {
+    fs.writeFileSync(dest, fs.readFileSync(src));
 }
