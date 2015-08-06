@@ -1,6 +1,6 @@
-# doc
+# marked-doc
 
-> 文档自由书写方案，基于[marked](https://github.com/chjj/marked)
+> 文档自由书写方案，基于Node.js、[marked](https://github.com/chjj/marked)
 
 ## Install
 
