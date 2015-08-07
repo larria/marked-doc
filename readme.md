@@ -32,9 +32,11 @@ $ node doc
 
 ## Todo
 
-1. 自定义输出路径等常用配置
+1. 兼容linux与mac os
 
-2. 前端模板更换与定制
+2. 自定义输出路径等常用配置
+
+3. 前端模板更换与定制
 
 
 [badge]: https://www.npmjs.com/package/marked-doc
