@@ -38,6 +38,8 @@ $ node doc
 
 ## Todo
 
+1. 加入Commander全局命令
+
 1. 兼容linux与mac os
 
 2. 自定义输出路径等常用配置
