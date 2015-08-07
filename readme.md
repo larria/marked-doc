@@ -14,11 +14,11 @@
 npm install
 ```
 
-或者，也可通过npm全局安装：
+<!-- 或者，也可通过npm全局安装：
 
 ```bash
 npm install marked-doc -g
-```
+``` -->
 
 --------
 
