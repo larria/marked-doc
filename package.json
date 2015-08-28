@@ -2,16 +2,15 @@
   "name": "marked-doc",
   "description": "A markdown2HTML parser based on nodejs and marked",
   "author": "Larkin",
-  "version": "0.1.2",
+  "version": "0.1.8",
   "main": "doc.js",
   "license": "MIT",
   "keywords": ["markdown", "markup", "html"],
   "tags": ["markdown", "markup", "html"],
   "bin": {
-    "marked-doc": "doc"
+    "mddoc": "./bin/marked-doc"
   },
   "devDependencies": {
-    "marked": "*",
-    // "commander": "~2.8.1"
+    "marked": "*"
   }
 }

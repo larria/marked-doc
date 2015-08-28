@@ -24,7 +24,7 @@ npm install marked-doc -g
 
 ## Usage
 
-在src文件夹置入所有md文件，支持子目录嵌套
+在mds文件夹置入所有md文件，支持子目录嵌套
 
 ```bash
 $ node doc 
