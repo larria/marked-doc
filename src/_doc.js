@@ -16,9 +16,11 @@ var fs = require('fs');
 
 function doc(path) {
     var path_doc = path.replace('mds', 'doc');
-    console.log(path_doc, fs.existsSync(path_doc))
     if (!fs.existsSync(path_doc)) {
         fs.mkdirSync(path_doc, 0777);
+    }
+    else{
+        deleteFolder(path_doc, false);
     }
     walk(path);
     console.log('docs generated at: ' + path_doc);
@@ -88,6 +90,24 @@ function fixedHTML(str, title) {
 
 function copyFile(src, dest) {
     fs.writeFileSync(dest, fs.readFileSync(src));
+}
+
+function deleteFolder(path, delRoot) {
+    var files = [];
+    if (fs.existsSync(path)) {
+        files = fs.readdirSync(path);
+        files.forEach(function(file, index) {
+            var curPath = path + "/" + file;
+            if (fs.statSync(curPath).isDirectory()) {
+                deleteFolder(curPath, true);
+            } else {
+                fs.unlinkSync(curPath);
+            }
+        });
+        if(delRoot){
+            fs.rmdirSync(path);
+        }
+    }
 }
 
 exports.doc = doc;
