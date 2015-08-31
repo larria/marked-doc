@@ -2,7 +2,7 @@
   "name": "marked-doc",
   "description": "A markdown2HTML parser based on nodejs and marked",
   "author": "Larkin",
-  "version": "0.1.8",
+  "version": "0.1.17",
   "main": "doc.js",
   "license": "MIT",
   "keywords": ["markdown", "markup", "html"],

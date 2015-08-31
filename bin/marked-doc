@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 
+var path = require('path');
 var doc = require('../src/_doc.js');
 
-doc.doc(__dirname + '/mds');
+doc.doc(path.resolve('mds'));
