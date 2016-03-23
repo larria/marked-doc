@@ -15,7 +15,7 @@ var path = require('path');
 var fs = require('fs');
 
 function doc(path) {
-    var path_doc = path.replace('mds', 'doc');
+    var path_doc = path.replace('mds', 'html');
     if (!fs.existsSync(path_doc)) {
         fs.mkdirSync(path_doc, 0777);
     }
@@ -36,7 +36,7 @@ function walk(path) {
             if (item.match(/\.md$/i)) {
                 buildHtml(path, item);
             } else {
-                copyFile(path + '/' + item, (path + '/' + item).replace('mds', 'doc'));
+                copyFile(path + '/' + item, (path + '/' + item).replace('mds', 'html'));
             }
         }
     });
@@ -52,7 +52,7 @@ function buildHtml(path, item) {
             // htmlPath = path.replace(/\/.+$/, '') + '/doc/';
             // htmlName = item.replace(/\.md$/i, '') + '.html';
             // htmlPath = __dirname + '/doc/' + path.replace(__dirname + '/mds', '') + '/';
-            htmlPath = path.replace('mds', 'doc') + '/';
+            htmlPath = path.replace('mds', 'html') + '/';
             htmlName = item.replace(/\.md$/i, '') + '.html';
             fs.writeFile(htmlPath + htmlName, fixedHTML(marked(data), item));
         }
@@ -60,7 +60,7 @@ function buildHtml(path, item) {
 }
 
 function buildDir(path) {
-    path = path.replace('mds', 'doc');
+    path = path.replace('mds', 'html');
     if (!fs.existsSync(path)) {
         fs.mkdirSync(path, 0777);
     }
